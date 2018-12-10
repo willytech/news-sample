@@ -109,12 +109,14 @@ function getImages(newsId) {
 }
 
 function addNewImage() {
+    hideAndShow('loader');
     var currentNews = CacheUtil.get(CURRENT_NEWS);
     var data = {
         newsId: currentNews.id,
         image: getImage()
     };
     imageService.createOrUpdateImage(currentNews.id, data, function (status, res) {
+        hideAndShow('loader');
         if (status !== 200) {
             alert(res);
             return;
