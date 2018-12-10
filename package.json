@@ -1,0 +1,23 @@
+{
+  "name": "news-sample",
+  "version": "1.0.0",
+  "description": "A sample of a news app",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Procaseycash/news-sample.git"
+  },
+  "keywords": [
+    "News",
+    "App"
+  ],
+  "author": "Kazeem Olanipekun <kezyolanipekun@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Procaseycash/news-sample/issues"
+  },
+  "homepage": "https://github.com/Procaseycash/news-sample#readme"
+}
