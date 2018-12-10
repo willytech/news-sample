@@ -1,0 +1,306 @@
+.grid-11 {
+    width: 91.666666% !important;
+    float: left;
+}
+
+.grid-10 {
+    width: 83.333333% !important;
+    float: left;
+}
+
+.grid-9 {
+    width: 75% !important;
+
+    float: left;
+}
+
+.grid-8 {
+    width: 66.666666% !important;
+
+    background: #fff;
+    float: left;
+}
+
+.grid-7 {
+    width: 58.333333% !important;
+    float: left;
+}
+
+.grid-6 {
+    width: 50% !important;
+
+    float: left;
+}
+
+.grid-12 {
+    width: 100% !important;
+
+}
+
+.grid-5 {
+    width: 41.666666% !important;
+    float: left;
+}
+
+.grid-4 {
+    width: 33.333333% !important;
+    float: left;
+}
+
+.grid-3 {
+    width: 25% !important;
+    float: left;
+}
+
+.grid-2 {
+    width: 16.666666% !important;
+    float: left;
+}
+
+.grid-1 {
+    width: 8.333333% !important;
+    float: left;
+}
+
+.pad-5 {
+    padding: 10px !important;
+}
+
+.m-5 {
+    margin: 5px !important;
+}
+
+img {
+    width: 100%;
+}
+
+.news-card {
+
+    min-height: 100px;
+    background: #ffffff;
+    border: 1px solid #dbdee2;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 20px 5px 5px;
+    position: relative;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+}
+
+.news-overlay {
+    width: 98%;
+    height: 97%;
+    position: absolute;
+    top: 3px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.title-info {
+    padding: 10px;
+    line-height: 30px;
+}
+
+.new-flag {
+    font-size: 30px;
+    line-height: 60px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.landing {
+    width: 80%;
+    margin: 30px auto auto;
+}
+
+.img-50 {
+    width: 50% !important;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.img-100 {
+    width: 100px;
+    height: 100px;
+}
+
+.img-p100 {
+    width: 100%;
+}
+
+.img-circle {
+    border-radius: 100%;
+}
+
+.pad-l-5 {
+    padding-left: 5px;
+}
+
+.pad-r-5 {
+    padding-right: 5px;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.comment-card {
+    border: 1px solid #e9ecf0;
+    height: auto;
+    padding: 15px;
+    margin: 5px;
+    display: block;
+    border-radius: 5px;
+    background: #fff;
+    /*min-height: 200px;*/
+    position: relative;
+    min-height: 100% !important;
+}
+
+.date-bottom {
+    bottom: 12px;
+    position: absolute;
+    right: 12px;
+    font-weight: bold;
+}
+
+.prevPage, .nextPage {
+    font-size: 40px;
+    position: fixed;
+    -webkit-transform: translate(-50%, -50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.nextPage {
+    right: 30px;
+}
+
+.prevPage {
+    left: 30px;
+}
+
+.close-top {
+    top: 12px;
+    position: absolute;
+    right: 12px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none !important;
+    color: red !important;
+}
+
+label {
+    font-weight: bold;
+}
+
+.button-s {
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    border: 0 !important;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: forestgreen;
+}
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.offset-1 {
+    margin-left: 8.333333%;
+}
+
+.clear:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.input-form {
+    min-width: 30% !important;
+    padding: 10px;
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.body-news {
+    background: rgba(212, 123, 54, 0.5);
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.landing-ad {
+    margin-top: 0;
+    width: 70% !important;
+    background: #fff !important;
+}
+
+.ov-ad {
+    top: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+@media (max-width: 800px) {
+    .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11 {
+        width: 100% !important;
+
+    }
+
+    .offset-1 {
+        margin-left: 0 !important;
+    }
+
+    /* .img-circle {
+         border-radius: 0 !important;
+     }*/
+    .no-grid {
+        width: 100% !important;
+        /*margin-left: 32% !important;*/
+    }
+
+    .date-bottom {
+        position: relative !important;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .grid-5, .grid-4 {
+        width: 100% !important;
+
+    }
+
+    .offset-1 {
+        margin-left: 0 !important;
+    }
+}
