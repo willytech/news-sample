@@ -292,8 +292,8 @@ function buildCommentForm(newBuild) {
     gridName1.setAttribute('class', 'grid-1 pt-20');
     gridName2.setAttribute('class', 'grid-1 pt-20');
 
-    gridInput1.setAttribute('class', 'grid-8');
-    gridInput2.setAttribute('class', 'grid-8');
+    gridInput1.setAttribute('class', 'grid-10');
+    gridInput2.setAttribute('class', 'grid-10');
 
     clear1.setAttribute('class', 'clear');
     clear2.setAttribute('class', 'clear');
