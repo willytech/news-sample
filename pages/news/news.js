@@ -24,15 +24,16 @@ function getComments(newsId) {
 
 function openEdit(comment) {
     console.log("comment=", comment);
-    var form = document.getElementById('commentForm');
-    console.log('clienH=', form.offsetHeight);
-    form.scrollTop = form.getBoundingClientRect().height;
+    var form = document.getElementById('comment-form-div');
+    console.log('clienH=', form.scrollHeight);
+    window.scrollBy(0, 10000);
     document.getElementById('id-hidden').value = comment.id;
     document.getElementById('comment').value = comment.comment;
     document.getElementById('name').value = comment.name;
 }
 
 function createOrUpdateComment() {
+    hideAndShow('loader');
     var currentNews = CacheUtil.get(CURRENT_NEWS);
     var data = buildFormValues('commentForm');
     data.avatar = getImage();
@@ -40,6 +41,7 @@ function createOrUpdateComment() {
     console.log("createComment=", data);
     commentService.createOrUpdateComment(currentNews.id, data, function (status, res) {
         console.log('createUpda=', res);
+        hideAndShow('loader');
         if (status >= 400) {
             alert(res);
             return;
@@ -50,7 +52,9 @@ function createOrUpdateComment() {
                     commentList[i] = res;
                 }
             })
-        } else commentList.push(res);
+        } else {
+            commentList.push(res);
+        }
         buildComments(false);
 
         // start comment rendering;
