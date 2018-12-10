@@ -11,4 +11,4 @@ This generate random image url to enable API consumption
 
 ## Project Start Up
 
-This project does not require any setup mechanism. kindly open the `index.html` in browser.
+This project does not require any setup mechanism. kindly launch or double tap the `index.html` in browser.
