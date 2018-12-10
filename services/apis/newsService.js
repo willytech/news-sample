@@ -2,7 +2,6 @@
  * Author: Kazeem Olanipekun
  * Date: 09/12/2018
  * Page: News Service List
- * @type {Array}
  */
 
 var path = 'news';

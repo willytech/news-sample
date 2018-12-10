@@ -2,7 +2,6 @@
  * Author: Kazeem Olanipekun
  * Date: 09/12/2018
  * Page: App general Utilities
- * @type {Array}
  */
 
 
@@ -39,7 +38,7 @@ var getChildUrl = function (parentPath, path, id, contentId) {
  */
 var buildFormValues = function (formId) {
     var elements = document.getElementById(formId).elements;
-    console.log({elements});
+    // console.log({elements});
     var obj = {};
     for (var i = 0; i < elements.length; i++) {
         var element = elements.item(i);

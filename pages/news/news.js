@@ -2,7 +2,6 @@
  * Author: Kazeem Olanipekun
  * Date: 08/12/2018
  * Page: News View page
- * @type {Array}
  */
 
 var imageList = [];

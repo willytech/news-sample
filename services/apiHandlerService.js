@@ -2,7 +2,7 @@
  * Author: Kazeem Olanipekun
  * Date: 09/12/2018
  * Page: API restful call service
- * @type {Array}
+
  */
 
 var retry = networkErrorRetryTime;
