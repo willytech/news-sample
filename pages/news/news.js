@@ -10,6 +10,7 @@ var commentList = [];
 var newsRoot = null;
 var sliderDiv = null;
 
+
 /**
  * This is used to get comment by its ID with the current news Id
  * @param newsId
@@ -125,6 +126,7 @@ function deleteComment(commentId) {
     })
 }
 
+
 /***
  * This is the init page that is loaded once this page is opened
  */
@@ -135,6 +137,7 @@ function processCurrentNews() {
     // build news and then load comments
     getImages(currentNews.id); // load comments for news..
 }
+
 
 /***
  * This is used to run a create or update for news
@@ -157,6 +160,7 @@ function createOrUpdateNews() {
     })
 }
 
+
 /**
  * This is used to update news in view page for changes
  * @param data
@@ -167,6 +171,7 @@ function updateNewsView(data) {
         + "<b>Author:</b> " + data.author + "<br>" +
         "<b>Date:</b> " + new Date(data.createdAt).toDateString();
 }
+
 
 /**
  * This is used to get all images in a news to enable page slider
@@ -182,6 +187,7 @@ function getImages(newsId) {
         // start comment rendering;
     })
 }
+
 
 /**
  * This is used to auto generate news Image URL for upload
@@ -206,6 +212,7 @@ function addNewImage() {
         // start comment rendering;
     })
 }
+
 
 /**
  * This is used to build the html tags and slider div for viewing
@@ -278,6 +285,7 @@ function buildImageSliderForm() {
     showSliders(10);
 }
 
+
 /**
  * This is used to build comments listing for news for view purpose
  * @param newBuild
@@ -342,6 +350,7 @@ function buildComments(newBuild) {
     newsRoot.appendChild(div);
     if (!newBuild) buildCommentForm(false);
 }
+
 
 /**
  * This is used to build the comment form input
@@ -442,6 +451,7 @@ function buildCommentForm(newBuild) {
     newsRoot.appendChild(commentForm);
 
 }
+
 
 /**
  * This is used to build image slider.

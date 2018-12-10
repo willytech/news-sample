@@ -1,3 +1,11 @@
+/**
+ * Author: Kazeem Olanipekun
+ * Date: 09/12/2018
+ * Page: App general Utilities
+ * @type {Array}
+ */
+
+
 var hideAndShow = function (id) {
     var content = document.getElementById(id);
     if (content.classList.contains('show')) {
@@ -9,10 +17,26 @@ var hideAndShow = function (id) {
     }
 };
 
+
+/**
+ * This is used to get api url
+ * @param parentPath
+ * @param path
+ * @param id
+ * @param contentId
+ * @returns {string}
+ */
 var getChildUrl = function (parentPath, path, id, contentId) {
     return parentPath + id + '/' + path + ((contentId) ? '/' + contentId : '');
 }
 
+
+
+/**
+ * This is used to build form object and do basic validation
+ * @param formId
+ * @returns {{}}
+ */
 var buildFormValues = function (formId) {
     var elements = document.getElementById(formId).elements;
     console.log({elements});

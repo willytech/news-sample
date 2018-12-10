@@ -1,4 +1,13 @@
+/**
+ * Author: Kazeem Olanipekun
+ * Date: 09/12/2018
+ * Page: API restful call service
+ * @type {Array}
+ */
+
 var retry = networkErrorRetryTime;
+
+
 var processCall = function (method, url, callback, payload) {
     var request = new XMLHttpRequest();
     request.open(method.toUpperCase(), API_BASE_URL + url, true);
@@ -18,6 +27,8 @@ var processCall = function (method, url, callback, payload) {
     };
     request.send(payload ? JSON.stringify(payload) : null);
 };
+
+
 
 var ApiHandlerService = function () {
     return {

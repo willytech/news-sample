@@ -1,3 +1,10 @@
+/**
+ * Author: Kazeem Olanipekun
+ * Date: 09/12/2018
+ * Page: Landing Page
+ * @type {Array}
+ */
+
 var currentPage = PAGE;
 
 /**
@@ -27,6 +34,7 @@ function getNews(page) {
     });
 }
 
+
 /**
  * This is used to adjust current paging if no more page exist
  * @param page
@@ -35,6 +43,7 @@ function adjustCurrent(page) {
     currentPage += (page * -1);
     if (currentPage < 1) currentPage = PAGE;
 }
+
 
 /**
  * This is used to build news content for pageable
@@ -74,6 +83,7 @@ function buildNewsPaginate(res) {
 
     });
 }
+
 
 /**
  * This is used to cache current news and open for viewing

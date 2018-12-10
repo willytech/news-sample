@@ -1,3 +1,10 @@
+/**
+ * Author: Kazeem Olanipekun
+ * Date: 09/12/2018
+ * Page: Caching Utility
+ * @type {Array}
+ */
+
 var CacheUtil = function () {
     return {
         /**

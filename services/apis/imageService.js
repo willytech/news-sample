@@ -1,3 +1,11 @@
+/**
+ * Author: Kazeem Olanipekun
+ * Date: 09/12/2018
+ * Page: Image Service list
+ * @type {Array}
+ */
+
+
 var parentPath = 'news/';
 var imagePath = 'images';
 var url = '';

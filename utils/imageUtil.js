@@ -1,3 +1,10 @@
+/**
+ * Author: Kazeem Olanipekun
+ * Date: 09/12/2018
+ * Page: Image Util
+ * @type {Array}
+ */
+
 function getImage() {
     var defaultUrl = 'http://lorempixel.com/640/480/';
     var imagesType = ['nature', 'city', 'sports'];
@@ -6,6 +13,7 @@ function getImage() {
 
     return defaultUrl + imagesType[randomType] + '/' + randomNumber;
 }
+
 
 function imgError(image) {
     alert('failed');

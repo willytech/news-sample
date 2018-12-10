@@ -1,3 +1,11 @@
+/**
+ * Author: Kazeem Olanipekun
+ * Date: 09/12/2018
+ * Page: Comment Service List
+ * @type {Array}
+ */
+
+
 var parentPath = 'news/';
 var commentPath = 'comments';
 var url = '';
