@@ -13,8 +13,6 @@ var processCall = function (method, url, callback, payload) {
                 }, 2000);
                 return;
             }
-            callback(request.status, data);
-            return;
         }
         callback(request.status, data)
     };
