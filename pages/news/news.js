@@ -1,9 +1,20 @@
-/************* Comments API Consumption ****************/
+/**
+ * Author: Kazeem Olanipekun
+ * Date: 08/12/2018
+ * Page: News View page
+ * @type {Array}
+ */
+
 var imageList = [];
 var commentList = [];
 var newsRoot = null;
 var sliderDiv = null;
 
+/**
+ * This is used to get comment by its ID with the current news Id
+ * @param newsId
+ * @param id
+ */
 function getCommentById(newsId, id) {
     commentService.getCommentById(newsId, id, function (status, res) {
         if (status !== 200) return;
@@ -11,6 +22,11 @@ function getCommentById(newsId, id) {
     })
 }
 
+
+/**
+ * This is used to list all comments in a news by news ID
+ * @param newsId
+ */
 function getComments(newsId) {
     commentService.getComments(newsId, function (status, res) {
         console.log("commentsByNewsID=", res);
@@ -22,16 +38,43 @@ function getComments(newsId) {
     })
 }
 
-function openEdit(comment) {
+
+/**
+ * This is used to pre-populate comment information for editing
+ * @param comment
+ */
+function openEditComment(comment) {
     console.log("comment=", comment);
-    var form = document.getElementById('comment-form-div');
-    console.log('clienH=', form.scrollHeight);
     window.scrollBy(0, 10000);
     document.getElementById('id-hidden').value = comment.id;
+    document.getElementById('commentAddId').innerHTML = 'Edit Comment';
     document.getElementById('comment').value = comment.comment;
     document.getElementById('name').value = comment.name;
 }
 
+
+/**
+ * This is used to open add news or open and pre-populate news information for editing
+ */
+function addOrEdit(bool) {
+    if (bool) {
+        var currentNews = CacheUtil.get(CURRENT_NEWS);
+        document.getElementById('id-news').value = currentNews.id;
+        document.getElementById('newsAdd').innerHTML = 'Edit News';
+        document.getElementById('title-news').innerHTML = 'Edit News';
+        document.getElementById('author').value = currentNews.author;
+        document.getElementById('title').value = currentNews.title;
+    } else {
+        document.getElementById('newsAdd').innerHTML = 'Add News';
+        document.getElementById('title-news').innerHTML = 'Create News';
+    }
+    hideAndShow('add-news');
+}
+
+
+/**
+ * This is used to either run a create or update of comment
+ */
 function createOrUpdateComment() {
     hideAndShow('loader');
     var currentNews = CacheUtil.get(CURRENT_NEWS);
@@ -53,6 +96,7 @@ function createOrUpdateComment() {
                 }
             })
         } else {
+            document.getElementById('commentAddId').innerHTML = 'Add Comment';
             commentList.push(res);
         }
         buildComments(false);
@@ -62,6 +106,10 @@ function createOrUpdateComment() {
 }
 
 
+/**
+ * This is used to delete a comment by its ID
+ * @param commentId
+ */
 function deleteComment(commentId) {
     if (!confirm('Are you sure you want to delete this comment?')) return;
     var currentNews = CacheUtil.get(CURRENT_NEWS);
@@ -77,8 +125,9 @@ function deleteComment(commentId) {
     })
 }
 
-
-/************* News API Consumption****************/
+/***
+ * This is the init page that is loaded once this page is opened
+ */
 function processCurrentNews() {
     newsRoot = document.getElementById('newsRoot');
     hideAndShow('loader');
@@ -87,16 +136,42 @@ function processCurrentNews() {
     getImages(currentNews.id); // load comments for news..
 }
 
-
+/***
+ * This is used to run a create or update for news
+ */
 function createOrUpdateNews() {
-    var data = null;
+    var data = buildFormValues('news-form-div');
     newsService.createOrUpdateNews(data, function (status, res) {
-        if (status !== 200) return;
-        // start comment rendering;
+        hideAndShow('add-news');
+        document.getElementById('news-form-div').reset();
+        if (status >= 400) {
+            alert(res);
+            return;
+        }
+        if (data.id) {
+            CacheUtil.set(CURRENT_NEWS, res);
+            updateNewsView(res);
+        } else {
+            alert("News created successfully")
+        }
     })
 }
 
-/*********************Images API consumption*****************************/
+/**
+ * This is used to update news in view page for changes
+ * @param data
+ */
+function updateNewsView(data) {
+    document.getElementById('slider-title-info').innerHTML =
+        "<b>Title:</b> " + data.title + "<br>"
+        + "<b>Author:</b> " + data.author + "<br>" +
+        "<b>Date:</b> " + new Date(data.createdAt).toDateString();
+}
+
+/**
+ * This is used to get all images in a news to enable page slider
+ * @param newsId
+ */
 function getImages(newsId) {
     imageService.getImages(newsId, function (status, res) {
         console.log("imagesByNewsID=", res);
@@ -108,6 +183,9 @@ function getImages(newsId) {
     })
 }
 
+/**
+ * This is used to auto generate news Image URL for upload
+ */
 function addNewImage() {
     hideAndShow('loader');
     var currentNews = CacheUtil.get(CURRENT_NEWS);
@@ -129,6 +207,9 @@ function addNewImage() {
     })
 }
 
+/**
+ * This is used to build the html tags and slider div for viewing
+ */
 function buildImageSliderForm() {
     var currentNews = CacheUtil.get(CURRENT_NEWS);
     var grid = document.createElement('div');
@@ -150,6 +231,7 @@ function buildImageSliderForm() {
     var link2 = document.createElement('a');
     newsOverlay.setAttribute('class', 'news-overlay ov-ad');
     titleInfo.setAttribute('class', 'title-info new-flag');
+    titleInfo.setAttribute('id', 'slider-title-info');
     closeTop.setAttribute('class', 'close-top');
     closeTop1.setAttribute('class', 'close-top1');
     closeTop2.setAttribute('class', 'close-top2');
@@ -196,6 +278,10 @@ function buildImageSliderForm() {
     showSliders(10);
 }
 
+/**
+ * This is used to build comments listing for news for view purpose
+ * @param newBuild
+ */
 function buildComments(newBuild) {
     var div = null;
     if (newBuild) {
@@ -227,7 +313,7 @@ function buildComments(newBuild) {
         divM2.setAttribute('class', 'close-top');
         link.setAttribute('onclick', 'deleteComment(' + comment.id + ')');
         link.setAttribute('href', 'javascript: void(' + 0 + ')');
-        link1.setAttribute('onclick', 'openEdit(' + JSON.stringify(comment) + ')');
+        link1.setAttribute('onclick', 'openEditComment(' + JSON.stringify(comment) + ')');
         link1.setAttribute('href', 'javascript: void(' + 0 + ')');
         link1.setAttribute('style', 'padding-right: 20px; font-size: 12px');
         link.innerHTML = '&times';
@@ -257,6 +343,10 @@ function buildComments(newBuild) {
     if (!newBuild) buildCommentForm(false);
 }
 
+/**
+ * This is used to build the comment form input
+ * @param newBuild
+ */
 function buildCommentForm(newBuild) {
     var commentForm = null;
     if (newBuild) {
@@ -321,6 +411,7 @@ function buildCommentForm(newBuild) {
 
     button.setAttribute('class', 'button-s btn-primary');
     button.setAttribute('type', 'button');
+    button.setAttribute('id', 'commentAddId');
     button.setAttribute('href', 'javascript: void(' + 0 + ')');
     button.setAttribute('onclick', 'createOrUpdateComment()');
     button.innerHTML = "Add Comment";
@@ -352,7 +443,11 @@ function buildCommentForm(newBuild) {
 
 }
 
-
+/**
+ * This is used to build image slider.
+ * @param index
+ * @param newBuild
+ */
 function buildSliderImage(index, newBuild) {
     if (newBuild && index === 0) {
         sliderDiv = document.createElement('div');

@@ -11,11 +11,43 @@
     <link rel="stylesheet" href="../../css/slider.css">
 </head>
 <body onload="processCurrentNews();" class="body-news">
-<div id="newsRoot" class="landing landing-ad">
-
-</div>
+<div id="newsRoot" class="landing landing-ad"></div>
 <div id="loader" class="loader-center">
     <div class="loader"></div>
+</div>
+<div id="add-news" class="add-news hide">
+    <h3><span id="title-news">Create News</span> <a class="float-right" onclick="hideAndShow('add-news')" style="font-size: 20px" href="javascript: void(0)"><b>&times;</b></a>
+    </h3>
+    <div class="grid-12 pad-5">
+        <form id="news-form-div" action="">
+            <div class="clear">
+                <input type="hidden" id="id-news" name="id">
+            </div>
+            <div class="clear">
+                <div class="grid-3 pt-20"><label for="">Author</label></div>
+                <div class="grid-9">
+                    <input id="author" name="author" class="input-form" placeholder="Author?" type="text">
+                </div>
+            </div>
+            <div class="clear">
+                <div class="grid-3 pt-20"><label for="">Title</label></div>
+                <div class="grid-9">
+                    <input id="title" name="title" class="input-form" placeholder="Enter title" type="text">
+                </div>
+            </div>
+            <div class="clear">
+                <div class="grid-3 pt-20"><label for="">URL</label></div>
+                <div class="grid-9">
+                    <input id="url" name="url" class="input-form" placeholder="Enter website url" type="text">
+                </div>
+            </div>
+            <div class="clear offset-3 mt-5">
+                <button id="newsAdd" type="button" onclick="createOrUpdateNews()" class="button-s btn-primary">
+                    Add News
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
 <script src="../../config/appConfig.js"></script>
 <script src="../../services/apiHandlerService.js"></script>

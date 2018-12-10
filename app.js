@@ -1,5 +1,9 @@
 var currentPage = PAGE;
 
+/**
+ * This is used to get all news in a paginated format
+ * @param page
+ */
 function getNews(page) {
     hideAndShow('loader');
     if (page) {
@@ -23,11 +27,19 @@ function getNews(page) {
     });
 }
 
+/**
+ * This is used to adjust current paging if no more page exist
+ * @param page
+ */
 function adjustCurrent(page) {
     currentPage += (page * -1);
     if (currentPage < 1) currentPage = PAGE;
 }
 
+/**
+ * This is used to build news content for pageable
+ * @param res
+ */
 function buildNewsPaginate(res) {
     var appRoot = document.getElementById('appRoot');
     appRoot.innerHTML = '';
@@ -63,6 +75,10 @@ function buildNewsPaginate(res) {
     });
 }
 
+/**
+ * This is used to cache current news and open for viewing
+ * @param data
+ */
 function openNews(data) {
     CacheUtil.set(CURRENT_NEWS, data);
     window.open('pages/news', '_self');
