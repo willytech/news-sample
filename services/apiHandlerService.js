@@ -6,7 +6,7 @@ var processCall = function (method, url, callback, payload) {
         console.log('response=', this.response, request.status);
         var data = JSON.parse(this.response);
         if (request.status >= 400) {
-            if (retry > 0) { // retry based on number of times configured in an interval of 2 seconds
+            if (retry > 0) { // retry base on number of times configured in an interval of 2 seconds
                 retry--;
                 setTimeout(function () {
                     processCall(method, url, callback, payload);
