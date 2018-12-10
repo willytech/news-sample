@@ -90,5 +90,5 @@ function buildNewsPaginate(res) {
  */
 function openNews(data) {
     CacheUtil.set(CURRENT_NEWS, data);
-    window.open('pages/news', '_self');
+    window.open('pages/news/index.html', '_self');
 }
