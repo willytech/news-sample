@@ -204,6 +204,22 @@ img {
     font-size: 20px;
 }
 
+.close-top2 {
+    top: 60px;
+    position: absolute;
+    right: 12px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.close-top1 {
+    top: 120px;
+    position: absolute;
+    right: 12px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 a {
     text-decoration: none !important;
     color: red !important;
@@ -225,6 +241,13 @@ label {
 
 .btn-primary {
     background: forestgreen;
+}
+.btn-warning {
+    background: #ffcb70;
+}
+
+.btn-success {
+    background: darkblue;
 }
 
 .mt-0 {

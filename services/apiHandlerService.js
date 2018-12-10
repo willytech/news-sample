@@ -2,9 +2,9 @@ var processCall = function(method, url, callback, payload) {
     var request = new XMLHttpRequest();
     request.open(method.toUpperCase(), API_BASE_URL + url, true);
     request.onload = function () {
-        console.log('response=', this.response);
+        console.log('response=', this.response, request.status);
         var data = JSON.parse(this.response);
-        if (request.status !== 200) {
+        if (request.status >= 200 && request.status < 400) {
             callback(request.status, data);
             return;
         }
