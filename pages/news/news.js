@@ -143,6 +143,7 @@ function processCurrentNews() {
  */
 function createOrUpdateNews() {
     var data = buildFormValues('news-form-div');
+    if (!data.id) data.avatar = getImage(); // for only create
     newsService.createOrUpdateNews(data, function (status, res) {
         hideAndShow('add-news');
         document.getElementById('news-form-div').reset();
