@@ -180,7 +180,11 @@ function updateNewsView(data) {
 function getImages(newsId) {
     imageService.getImages(newsId, function (status, res) {
         console.log("imagesByNewsID=", res);
-        if (status !== 200) return;
+        if (status !== 200 || res.length === 0) {
+            alert('No News Details');
+            window.open("../../index.html", '_self');
+            return;
+        }
         imageList = res;
         buildImageSliderForm();
         getComments(newsId); // load comments for news..
